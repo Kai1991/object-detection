@@ -91,6 +91,7 @@ def main():
     # prepare data
     image = Image.open(image_path)
     (image_width, image_height) = image.size
+    print(image.size)
     image_np = load_image_into_numpy_array(image)
     # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
     image_np_expanded = np.expand_dims(image_np, axis=0)
@@ -121,7 +122,7 @@ if __name__ == '__main__':
                       default='test_images/',
                       help='image path')
   parser.add_argument('--model_frozen', type=str,
-                      default='/home/andy/selfdrivingcar/TFMODEL/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb',
+                      default='../model/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb',
                       help='model path')
   parser.add_argument('--label_path', type=str,
                       default='label_utils/mscoco_label_map.pbtxt',
